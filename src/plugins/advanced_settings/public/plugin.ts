@@ -45,31 +45,31 @@ export class AdvancedSettingsPlugin
   public setup(core: CoreSetup, { management, home }: AdvancedSettingsPluginSetup) {
     const opensearchDashboardsSection = management.sections.section.opensearchDashboards;
 
-    opensearchDashboardsSection.registerApp({
-      id: 'settings',
-      title,
-      order: 3,
-      async mount(params) {
-        const { mountManagementSection } = await import(
-          './management_app/mount_management_section'
-        );
-        return mountManagementSection(core.getStartServices, params, component.start);
-      },
-    });
+    // opensearchDashboardsSection.registerApp({
+    //   id: 'settings',
+    //   title,
+    //   order: 3,
+    //   async mount(params) {
+    //     const { mountManagementSection } = await import(
+    //       './management_app/mount_management_section'
+    //     );
+    //     return mountManagementSection(core.getStartServices, params, component.start);
+    //   },
+    // });
 
     if (home) {
-      home.featureCatalogue.register({
-        id: 'advanced_settings',
-        title,
-        description: i18n.translate('advancedSettings.featureCatalogueTitle', {
-          defaultMessage:
-            'Customize your OpenSearch Dashboards experience — change the date format, turn on dark mode, and more.',
-        }),
-        icon: 'gear',
-        path: '/app/management/opensearch-dashboards/settings',
-        showOnHomePage: false,
-        category: FeatureCatalogueCategory.ADMIN,
-      });
+      // home.featureCatalogue.register({
+      //   id: 'advanced_settings',
+      //   title,
+      //   description: i18n.translate('advancedSettings.featureCatalogueTitle', {
+      //     defaultMessage:
+      //       'Customize your OpenSearch Dashboards experience — change the date format, turn on dark mode, and more.',
+      //   }),
+      //   icon: 'gear',
+      //   path: '/app/management/opensearch-dashboards/settings',
+      //   showOnHomePage: false,
+      //   category: FeatureCatalogueCategory.ADMIN,
+      // });
     }
 
     return {

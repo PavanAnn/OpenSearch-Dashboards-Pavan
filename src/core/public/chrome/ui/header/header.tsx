@@ -1,12 +1,16 @@
 /*
+ * Copyright OpenSearch Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* eslint-disable no-console */
+
+/*
  * SPDX-License-Identifier: Apache-2.0
  *
  * The OpenSearch Contributors require contributions made to
  * this file be licensed under the Apache-2.0 license or a
  * compatible open source license.
- *
- * Any modifications Copyright OpenSearch Contributors. See
- * GitHub history for details.
  */
 
 /*
@@ -28,22 +32,37 @@
  * under the License.
  */
 
-import {
-  EuiHeader,
-  EuiHeaderSection,
-  EuiHeaderSectionItem,
-  EuiHeaderSectionItemButton,
-  EuiHideFor,
-  EuiIcon,
-  EuiShowFor,
-  htmlIdGenerator,
-} from '@elastic/eui';
-import { i18n } from '@osd/i18n';
 import classnames from 'classnames';
-import React, { createRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import useObservable from 'react-use/lib/useObservable';
 import { Observable } from 'rxjs';
-import { LoadingIndicator } from '../';
+import { EuiButtonIcon, EuiToolTip } from '@elastic/eui';
+import { EuiHeaderSection, EuiHeaderSectionItem } from '@elastic/eui';
+import { MobileContext } from '../../../../public/context_mobile';
+import { LoadingIndicator } from '..';
+import {
+  Nav,
+  NavMenu,
+  InfoMenu,
+  UserMenu,
+  DropdownMenu,
+  UserName,
+  UserEmail,
+  AccountSettings,
+  UserLogout,
+  BreadCrumb,
+} from './breadcrumb/styles';
+import {
+  HelpOption,
+  DropdownMenuOption,
+  UserMenuOption,
+  UserMenuApps,
+  DropdownMenuApps,
+  ContainerApps,
+  RowApps,
+  TitleApp,
+  RedirectApp,
+} from './nav_user/styles';
 import {
   ChromeBadge,
   ChromeBreadcrumb,
@@ -54,15 +73,21 @@ import {
 import { InternalApplicationStart } from '../../../application/types';
 import { HttpStart } from '../../../http';
 import { ChromeHelpExtension, ChromeBranding } from '../../chrome_service';
-import { OnIsLockedUpdate } from './';
-import { CollapsibleNav } from './collapsible_nav';
-import { HeaderBadge } from './header_badge';
-import { HeaderBreadcrumbs } from './header_breadcrumbs';
-import { HeaderHelpMenu } from './header_help_menu';
-import { HomeLoader } from './home_loader';
-import { HeaderNavControls } from './header_nav_controls';
+import { OnIsLockedUpdate } from '.';
+import { InfoMenuIcon } from './assets/InfoMenuIcon';
+import { AppsMenu } from './assets/AppsMenu';
+import { ApiPlatformIcon } from './assets/ApiPlatformIcon';
+import { EventsHubIcon } from './assets/EventsHubIcon';
+import { ServiceMeshIcon } from './assets/ServiceMeshIcon';
+import { FlexibleActionsIcon } from './assets/FlexibleActionsIcon';
+import { AccessControlIcon } from './assets/AccessControlIcon';
+import { redirectTo } from './enum_links/enum_links';
+import { Modal } from '../modal/modal.component';
+import { useDetectOutsideClick } from './nav_user/useDetectOutsideClick';
+// import { HeaderBreadcrumbs } from './breadcrumb';
 import { HeaderActionMenu } from './header_action_menu';
-import { HeaderLogo } from './header_logo';
+import { useWindowDimensions } from './hooks/useWindowSize';
+import { HeaderBreadcrumbs } from './header_breadcrumbs';
 
 export interface HeaderProps {
   opensearchDashboardsVersion: string;
@@ -82,14 +107,11 @@ export interface HeaderProps {
   navControlsLeft$: Observable<readonly ChromeNavControl[]>;
   navControlsCenter$: Observable<readonly ChromeNavControl[]>;
   navControlsRight$: Observable<readonly ChromeNavControl[]>;
-  navControlsExpandedCenter$: Observable<readonly ChromeNavControl[]>;
-  navControlsExpandedRight$: Observable<readonly ChromeNavControl[]>;
   basePath: HttpStart['basePath'];
   isLocked$: Observable<boolean>;
   loadingCount$: ReturnType<HttpStart['getLoadingCount$']>;
   onIsLockedUpdate: OnIsLockedUpdate;
   branding: ChromeBranding;
-  survey: string | undefined;
 }
 
 export function Header({
@@ -100,163 +122,235 @@ export function Header({
   onIsLockedUpdate,
   homeHref,
   branding,
-  survey,
   ...observables
 }: HeaderProps) {
   const isVisible = useObservable(observables.isVisible$, false);
-  const isLocked = useObservable(observables.isLocked$, false);
-  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const { handleSideChanges, open } = useContext(MobileContext);
+
+  const dropdownRef = useRef(null);
+  const dropdownOptionRef = useRef(null);
+  const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
+  const [optionMenu, setOptionMenu] = useDetectOutsideClick(dropdownOptionRef, false);
+  const [optionMenuApp, setOptionMenuApp] = useDetectOutsideClick(dropdownOptionRef, false);
+
+  const [showModal, setShowModal] = useState<boolean>(false);
+
+  const toggleMenuUser = () => setIsActive(!isActive);
+  const toggleOptionMenu = () => setOptionMenu(!optionMenu);
+  const toggleOptionMenuApp = () => setOptionMenuApp(!optionMenuApp);
+  const handleShowModal = () => setShowModal(!showModal);
+
+  const redirect = async (path: string) => {
+    window.open(`${window.location.origin}/${path}`);
+  };
+
+  const currentUser = {
+    name: 'Lucca',
+    email: 'lucca@lucca.lucca',
+  };
+
+  const { width } = useWindowDimensions();
+
+  const [widthSidebar, setWidthSidebar] = useState(false);
+
+  useEffect(() => {
+    if (width <= 768) {
+      setWidthSidebar(true);
+    } else {
+      setWidthSidebar(false);
+    }
+  }, [width]);
 
   if (!isVisible) {
     return <LoadingIndicator loadingCount$={observables.loadingCount$} showAsBar />;
   }
 
-  const toggleCollapsibleNavRef = createRef<HTMLButtonElement & { euiAnimate: () => void }>();
-  const navId = htmlIdGenerator()();
   const className = classnames('hide-for-sharing', 'headerGlobalNav');
-  const { useExpandedHeader = true, darkMode } = branding;
 
   return (
     <>
-      <header className={className} data-test-subj="headerGlobalNav">
+      <header
+        className={className}
+        data-test-subj="headerGlobalNav"
+        style={{
+          position: 'fixed',
+          zIndex: 1,
+          width: '100%',
+          marginLeft: widthSidebar && !open ? '0px' : '180px',
+          paddingRight: widthSidebar && !open ? '0px' : '180px',
+        }}
+      >
         <div id="globalHeaderBars">
-          {useExpandedHeader && (
-            <EuiHeader
-              className="expandedHeader"
-              theme="dark"
-              position="fixed"
-              sections={[
-                {
-                  items: [
-                    <HeaderLogo
-                      href={homeHref}
-                      forceNavigation$={observables.forceAppSwitcherNavigation$}
-                      navLinks$={observables.navLinks$}
-                      navigateToApp={application.navigateToApp}
-                      branding={branding}
-                    />,
-                  ],
-                  borders: 'none',
-                },
-                {
-                  items: [
-                    <EuiShowFor sizes={['m', 'l', 'xl']}>
-                      <HeaderNavControls navControls$={observables.navControlsExpandedCenter$} />
-                    </EuiShowFor>,
-                  ],
-                  borders: 'none',
-                },
-                {
-                  items: [
-                    <EuiHideFor sizes={['m', 'l', 'xl']}>
-                      <HeaderNavControls navControls$={observables.navControlsExpandedCenter$} />
-                    </EuiHideFor>,
-                    <HeaderNavControls navControls$={observables.navControlsExpandedRight$} />,
-                  ],
-                  borders: 'none',
-                },
-              ]}
-            />
-          )}
-
-          <EuiHeader position="fixed" className="primaryHeader">
-            <EuiHeaderSection grow={false}>
-              <EuiHeaderSectionItem border="right" className="header__toggleNavButtonSection">
-                <EuiHeaderSectionItemButton
-                  data-test-subj="toggleNavButton"
-                  aria-label={i18n.translate('core.ui.primaryNav.toggleNavAriaLabel', {
-                    defaultMessage: 'Toggle primary navigation',
-                  })}
-                  onClick={() => setIsNavOpen(!isNavOpen)}
-                  aria-expanded={isNavOpen}
-                  aria-pressed={isNavOpen}
-                  aria-controls={navId}
-                  ref={toggleCollapsibleNavRef}
-                >
-                  <EuiIcon
-                    type="menu"
-                    size="m"
-                    title={i18n.translate('core.ui.primaryNav.menu', {
-                      defaultMessage: 'Menu',
-                    })}
+          <Nav>
+            <NavMenu>
+              <div
+                style={{
+                  marginLeft:
+                    widthSidebar && !open ? '0px' : widthSidebar && !open ? '-140px' : '0px',
+                  maxWidth: widthSidebar && open ? '45%' : '100%',
+                }}
+              >
+                {widthSidebar ? (
+                  <div
+                    className="nav-mobile-styles"
+                    style={{ zIndex: 2, position: 'fixed', marginTop: '9px' }}
+                  >
+                    <EuiButtonIcon
+                      size="m"
+                      iconType={'menu'}
+                      style={{ height: '23px', width: '23px' }}
+                      onClick={handleSideChanges}
+                    />
+                  </div>
+                ) : (
+                  ''
+                )}
+                <BreadCrumb>
+                  <HeaderBreadcrumbs
+                    appTitle$={observables.appTitle$}
+                    breadcrumbs$={observables.breadcrumbs$}
                   />
-                </EuiHeaderSectionItemButton>
-              </EuiHeaderSectionItem>
+                </BreadCrumb>
+              </div>
 
-              <EuiHeaderSectionItem border="right">
-                <HeaderNavControls side="left" navControls$={observables.navControlsLeft$} />
-              </EuiHeaderSectionItem>
+              <InfoMenu>
+                <div style={{ cursor: 'pointer' }}>
+                  <UserMenuOption onClick={toggleOptionMenu}>
+                    <EuiToolTip position="bottom" content="Help">
+                      <InfoMenuIcon />
+                    </EuiToolTip>
+                  </UserMenuOption>
+                  <DropdownMenuOption
+                    ref={dropdownOptionRef}
+                    className={`${optionMenu ? 'active' : 'inactive'}`}
+                  >
+                    <ul>
+                      <HelpOption onClick={handleShowModal}>About</HelpOption>
+                      <HelpOption onClick={() => redirectTo('online_help')}>Online Help</HelpOption>
+                    </ul>
+                  </DropdownMenuOption>
+                </div>
 
-              <EuiHeaderSectionItem border="right">
-                <HomeLoader
-                  href={homeHref}
-                  forceNavigation$={observables.forceAppSwitcherNavigation$}
-                  navLinks$={observables.navLinks$}
-                  navigateToApp={application.navigateToApp}
-                  branding={branding}
-                  loadingCount$={observables.loadingCount$}
-                />
-              </EuiHeaderSectionItem>
-            </EuiHeaderSection>
+                {!window.location.href.includes('sbox') && (
+                  <div style={{ cursor: 'pointer' }}>
+                    <UserMenuApps onClick={toggleOptionMenuApp}>
+                      <div data-tooltip="Apps" className="tooltip">
+                        <EuiToolTip position="bottom" content="Apps">
+                          <AppsMenu />
+                        </EuiToolTip>
+                      </div>
+                    </UserMenuApps>
+                    <DropdownMenuApps
+                      ref={dropdownOptionRef}
+                      className={`${optionMenuApp ? 'active' : 'inactive'}`}
+                    >
+                      <ContainerApps>
+                        <RowApps>
+                          <RedirectApp onClick={() => redirect('api-manager')}>
+                            <ApiPlatformIcon />
+                            <TitleApp>{'API Platform'}</TitleApp>
+                          </RedirectApp>
+                          <RedirectApp onClick={() => redirect('events-hub')}>
+                            <EventsHubIcon />
+                            <TitleApp>{'Events Hub'}</TitleApp>
+                          </RedirectApp>
+                          <RedirectApp onClick={() => redirect('mesh')}>
+                            <ServiceMeshIcon />
+                            <TitleApp>{'Service Mesh'}</TitleApp>
+                          </RedirectApp>
+                          <RedirectApp onClick={() => redirect('flex-actions')}>
+                            <FlexibleActionsIcon />
+                            <TitleApp>{'Flexible Actions'}</TitleApp>
+                          </RedirectApp>
+                          {currentUser?.name !== undefined && (
+                            <RedirectApp onClick={() => redirect('access-control')}>
+                              <AccessControlIcon />
+                              <TitleApp>{'Access Control'}</TitleApp>
+                            </RedirectApp>
+                          )}
+                        </RowApps>
+                      </ContainerApps>
+                    </DropdownMenuApps>
+                  </div>
+                )}
+              </InfoMenu>
 
-            <HeaderBreadcrumbs
-              appTitle$={observables.appTitle$}
-              breadcrumbs$={observables.breadcrumbs$}
-              isDarkMode={darkMode}
-            />
+              <EuiToolTip
+                position="bottom"
+                content={
+                  currentUser?.name !== undefined
+                    ? currentUser?.name
+                    : (JSON.parse(localStorage.getItem('ls.user') as string).login as string) !== ''
+                    ? (JSON.parse(localStorage.getItem('ls.user') as string).login as string)
+                    : 'Error'
+                }
+              >
+                <UserMenu onClick={toggleMenuUser}>
+                  {currentUser?.name !== undefined
+                    ? currentUser?.name
+                    : (JSON.parse(localStorage.getItem('ls.user') as string).login as string) !== ''
+                    ? (JSON.parse(localStorage.getItem('ls.user') as string).login as string)
+                    : 'Error'}
+                </UserMenu>
+              </EuiToolTip>
+              <DropdownMenu
+                style={{
+                  right:
+                    widthSidebar && !open
+                      ? '0px'
+                      : widthSidebar && open
+                      ? '180px'
+                      : !widthSidebar
+                      ? '180px'
+                      : '0px',
+                }}
+                ref={dropdownRef}
+                className={`${isActive ? 'active' : 'inactive'}`}
+              >
+                <ul>
+                  <UserName>
+                    {currentUser?.name !== undefined
+                      ? currentUser?.name
+                      : (JSON.parse(localStorage.getItem('ls.user') as string).login as string)}
+                  </UserName>
+                  <UserEmail>
+                    {currentUser?.email !== undefined
+                      ? currentUser?.email
+                      : (JSON.parse(localStorage.getItem('ls.user') as string).email as string)}
+                  </UserEmail>
+                  {currentUser?.name !== undefined ? (
+                    <AccountSettings
+                      onClick={() => {
+                        redirect('access-control/account-settings');
+                      }}
+                    >
+                      Account Settings
+                    </AccountSettings>
+                  ) : (
+                    <AccountSettings
+                      onClick={() => {
+                        redirect('api-manager/#/users/list');
+                      }}
+                    >
+                      Account Settings
+                    </AccountSettings>
+                  )}
 
-            <EuiHeaderSectionItem border="none">
-              <HeaderBadge badge$={observables.badge$} />
-            </EuiHeaderSectionItem>
+                  <UserLogout onClick={() => console.log('Uwu')}>Logout</UserLogout>
+                </ul>
+              </DropdownMenu>
+            </NavMenu>
 
             <EuiHeaderSection side="right">
               <EuiHeaderSectionItem border="none">
                 <HeaderActionMenu actionMenu$={application.currentActionMenu$} />
               </EuiHeaderSectionItem>
-
-              <EuiHeaderSectionItem border="left">
-                <HeaderNavControls navControls$={observables.navControlsCenter$} />
-              </EuiHeaderSectionItem>
-
-              <EuiHeaderSectionItem border="left">
-                <HeaderNavControls navControls$={observables.navControlsRight$} />
-              </EuiHeaderSectionItem>
-
-              <EuiHeaderSectionItem border="left">
-                <HeaderHelpMenu
-                  helpExtension$={observables.helpExtension$}
-                  helpSupportUrl$={observables.helpSupportUrl$}
-                  opensearchDashboardsDocLink={opensearchDashboardsDocLink}
-                  opensearchDashboardsVersion={opensearchDashboardsVersion}
-                  surveyLink={survey}
-                />
-              </EuiHeaderSectionItem>
             </EuiHeaderSection>
-          </EuiHeader>
+          </Nav>
         </div>
-
-        <CollapsibleNav
-          appId$={application.currentAppId$}
-          id={navId}
-          isLocked={isLocked}
-          navLinks$={observables.navLinks$}
-          recentlyAccessed$={observables.recentlyAccessed$}
-          isNavOpen={isNavOpen}
-          homeHref={homeHref}
-          basePath={basePath}
-          navigateToApp={application.navigateToApp}
-          navigateToUrl={application.navigateToUrl}
-          onIsLockedUpdate={onIsLockedUpdate}
-          closeNav={() => {
-            setIsNavOpen(false);
-            if (toggleCollapsibleNavRef.current) {
-              toggleCollapsibleNavRef.current.focus();
-            }
-          }}
-          customNavLink$={observables.customNavLink$}
-          branding={branding}
-        />
       </header>
+      <Modal active={showModal} hideModal={() => setShowModal(false)} />
     </>
   );
 }

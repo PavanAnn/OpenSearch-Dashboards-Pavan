@@ -46,7 +46,6 @@ import { FeatureCatalogueRegistry } from '../services/feature_catalogue';
 import { EnvironmentService } from '../services/environment';
 import { ConfigSchema } from '../../config';
 import { HomePluginBranding } from '..';
-import { DataSourcePluginStart } from '../../../data_source/public';
 
 export interface HomeOpenSearchDashboardsServices {
   indexPatternService: any;
@@ -72,7 +71,6 @@ export interface HomeOpenSearchDashboardsServices {
     getInjectedVar: (name: string, defaultValue?: any) => unknown;
     getBranding: () => HomePluginBranding;
   };
-  dataSource?: DataSourcePluginStart;
 }
 
 let services: HomeOpenSearchDashboardsServices | null = null;

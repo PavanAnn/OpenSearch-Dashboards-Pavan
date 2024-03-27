@@ -1,0 +1,80 @@
+h1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
+    color: #808080;
+}
+
+/* FOCUS NO LABEL */
+.euiFormRow__labelWrapper {
+    .euiFormLabel {
+        &.euiFormLabel-isFocused {
+            color: #837ff6;
+        }
+    }
+}
+
+/* CAMPO API KEY */
+.pass-field {
+    .euiFormControlLayoutCustomIcon {
+        >svg {
+            display: none;
+        }
+    }
+
+    box-shadow: 0 1px #c4c4c4;
+
+    :focus {
+        background-image: none;
+        box-shadow: 0 1px #c4c4c4;
+    }
+
+    .euiFormControlLayout--group {
+        padding: 0 !important;
+
+        :focus {
+            background-image: linear-gradient(to top, #837ff6, #837ff6 2px, transparent 2px, transparent 100%);
+        }
+
+        .euiButtonIcon {
+            background-color: #ffffff;
+            padding: 0 !important;
+        }
+
+        button {
+            width: 0;
+
+            >svg {
+                fill: #837ff6 !important;
+                margin-left: 0;
+            }
+        }
+
+        button:focus {
+            background-image: none !important;
+            width: 0;
+        }
+    }
+
+    .euiFieldPassword {
+        padding-left: 13px !important;
+        background-color: #ffffff;
+    }
+}
+
+.disabledColor {
+    .euiFormRow__labelWrapper {
+        label {
+            color: #B0B0B0;
+        }
+    }
+}
+
+.availableColor {
+    .euiFormRow__labelWrapper {
+        label {
+            color: #2C2C2C;
+        }
+    }
+}

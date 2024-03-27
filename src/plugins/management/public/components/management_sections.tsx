@@ -64,11 +64,11 @@ const sectionTip = i18n.translate('management.sections.section.tip', {
 });
 
 const opensearchDashboardsTitle = i18n.translate('management.sections.opensearchDashboardsTitle', {
-  defaultMessage: 'Dashboards Management',
+  defaultMessage: 'Sensedia Analytics',
 });
 
 const opensearchDashboardsTip = i18n.translate('management.sections.opensearchDashboardsTip', {
-  defaultMessage: 'Customize OpenSearch Dashboards and manage saved objects',
+  defaultMessage: 'Customize Sensedia Analytics and manage saved objects',
 });
 
 const stackTitle = i18n.translate('management.sections.stackTitle', {

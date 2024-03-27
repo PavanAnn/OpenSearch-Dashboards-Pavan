@@ -513,7 +513,7 @@ function discoverController($element, $route, $scope, $timeout, $window, Promise
   const pageTitleSuffix = savedSearch.id && savedSearch.title ? `: ${savedSearch.title}` : '';
   chrome.docTitle.change(`Discover${pageTitleSuffix}`);
   const discoverBreadcrumbsTitle = i18n.translate('discover.discoverBreadcrumbTitle', {
-    defaultMessage: 'Discover',
+    defaultMessage: 'General Trace',
   });
 
   if (savedSearch.id && savedSearch.title) {

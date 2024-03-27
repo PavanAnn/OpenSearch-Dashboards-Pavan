@@ -1,0 +1,7 @@
+{
+  "prefix": "homeAnalytics",
+  "paths": {
+    "homeAnalytics": "."
+  },
+  "translations": ["translations/ja-JP.json"]
+}

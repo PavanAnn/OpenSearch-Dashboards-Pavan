@@ -1,0 +1,7 @@
+{
+  "prefix": "logSearching",
+  "paths": {
+    "logSearching": "."
+  },
+  "translations": ["translations/ja-JP.json"]
+}

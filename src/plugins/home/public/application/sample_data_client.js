@@ -36,14 +36,12 @@ function clearIndexPatternsCache() {
   getServices().indexPatternService.clearCache();
 }
 
-export async function listSampleDataSets(dataSourceId) {
-  const query = buildQuery(dataSourceId);
-  return await getServices().http.get(sampleDataUrl, { query });
+export async function listSampleDataSets() {
+  return await getServices().http.get(sampleDataUrl);
 }
 
-export async function installSampleDataSet(id, sampleDataDefaultIndex, dataSourceId) {
-  const query = buildQuery(dataSourceId);
-  await getServices().http.post(`${sampleDataUrl}/${id}`, { query });
+export async function installSampleDataSet(id, sampleDataDefaultIndex) {
+  await getServices().http.post(`${sampleDataUrl}/${id}`);
 
   if (getServices().uiSettings.isDefault('defaultIndex')) {
     getServices().uiSettings.set('defaultIndex', sampleDataDefaultIndex);
@@ -52,9 +50,8 @@ export async function installSampleDataSet(id, sampleDataDefaultIndex, dataSourc
   clearIndexPatternsCache();
 }
 
-export async function uninstallSampleDataSet(id, sampleDataDefaultIndex, dataSourceId) {
-  const query = buildQuery(dataSourceId);
-  await getServices().http.delete(`${sampleDataUrl}/${id}`, { query });
+export async function uninstallSampleDataSet(id, sampleDataDefaultIndex) {
+  await getServices().http.delete(`${sampleDataUrl}/${id}`);
 
   const uiSettings = getServices().uiSettings;
 
@@ -66,14 +63,4 @@ export async function uninstallSampleDataSet(id, sampleDataDefaultIndex, dataSou
   }
 
   clearIndexPatternsCache();
-}
-
-function buildQuery(dataSourceId) {
-  const query = {};
-
-  if (dataSourceId) {
-    query.data_source_id = dataSourceId;
-  }
-
-  return query;
 }

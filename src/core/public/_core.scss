@@ -7,3 +7,75 @@
   min-width: 100%;
   min-height: 100%;
 }
+
+.visEditorSidebar__config {
+  flex: 1 !important;
+}
+
+g.highcharts-axis.highcharts-xaxis {
+  display: none !important;
+}
+
+.breadcrumb-styles {
+  .euiLink.euiLink--subdued {
+    color: #808080;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .euiLink.euiLink--text {
+    color: #837ff6;
+  }
+
+  .euiBreadcrumb--last {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #837ff6;
+    list-style: none;
+    text-decoration: none;
+
+    &:hover {
+      color: #837ff6;
+      cursor: default;
+      background: none !important;
+    }
+  }
+
+  .euiBreadcrumbSeparator {
+    transform: translateY(-2px) rotate(270deg) !important;
+    width: 0 !important;
+    height: 0 !important;
+    border-left: 4px solid rgb(249, 249, 249) !important;
+    border-right: 4px solid rgb(249, 249, 249) !important;
+    border-color: rgb(249, 249, 249) !important;
+    border-top: 4px solid #808080 !important;
+    margin-left: 10px !important;
+    margin-right: 15px !important;
+    border-top-right-radius: 2px !important;
+    border-top-left-radius: 2px !important;
+  }
+}
+
+.euiHeaderBreadcrumbs {
+  @media (max-width: 768px) {
+    margin-left: 55px;
+  }
+}
+
+.nav-mobile-styles {
+  margin-left: 10px;
+  position: absolute;
+  display: flex;
+
+  .euiButtonIcon {
+    height: 6px;
+  }
+}
+.dscAppContainer{
+  margin-top:10px;
+}

@@ -45,29 +45,34 @@ export function createUninstallRoute(
       path: '/api/sample_data/{id}',
       validate: {
         params: schema.object({ id: schema.string() }),
-        query: schema.object({
-          data_source_id: schema.maybe(schema.string()),
-        }),
       },
     },
-    async (context, request, response) => {
+    async (
+      {
+        core: {
+          opensearch: {
+            legacy: {
+              client: { callAsCurrentUser },
+            },
+          },
+          savedObjects: { client: savedObjectsClient },
+        },
+      },
+      request,
+      response
+    ) => {
       const sampleDataset = sampleDatasets.find(({ id }) => id === request.params.id);
-      const dataSourceId = request.query.data_source_id;
 
       if (!sampleDataset) {
         return response.notFound();
       }
-
-      const caller = dataSourceId
-        ? context.dataSource.opensearch.legacy.getClient(dataSourceId).callAPI
-        : context.core.opensearch.legacy.client.callAsCurrentUser;
 
       for (let i = 0; i < sampleDataset.dataIndices.length; i++) {
         const dataIndexConfig = sampleDataset.dataIndices[i];
         const index = createIndexName(sampleDataset.id, dataIndexConfig.id);
 
         try {
-          await caller('indices.delete', { index });
+          await callAsCurrentUser('indices.delete', { index });
         } catch (err) {
           return response.customError({
             statusCode: err.status,
@@ -78,12 +83,8 @@ export function createUninstallRoute(
         }
       }
 
-      const savedObjectsList = dataSourceId
-        ? sampleDataset.getDataSourceIntegratedSavedObjects(dataSourceId)
-        : sampleDataset.savedObjects;
-
-      const deletePromises = savedObjectsList.map(({ type, id }) =>
-        context.core.savedObjects.client.delete(type, id)
+      const deletePromises = sampleDataset.savedObjects.map(({ type, id }) =>
+        savedObjectsClient.delete(type, id)
       );
 
       try {

@@ -35,6 +35,7 @@ import React, {
   useRef,
   useState,
   MutableRefObject,
+  useEffect,
 } from 'react';
 import { EuiLoadingSpinner } from '@elastic/eui';
 
@@ -43,6 +44,7 @@ import { AppLeaveHandler, AppStatus, AppUnmount, Mounter } from '../types';
 import { AppNotFound } from './app_not_found_screen';
 import { ScopedHistory } from '../scoped_history';
 import './app_container.scss';
+import { useWindowDimensions } from '../../chrome/ui/header/hooks/useWindowSize';
 
 interface Props {
   /** Path application is mounted on without the global basePath */
@@ -126,15 +128,35 @@ export const AppContainer: FunctionComponent<Props> = ({
     setIsMounting,
   ]);
 
+  const { width } = useWindowDimensions();
+  const [widthSidebar, setWidthSidebar] = useState(false);
+
+  useEffect(() => {
+    if (width <= 768) {
+      setWidthSidebar(true);
+    } else {
+      setWidthSidebar(false);
+    }
+  }, [width]);
+
   return (
     <Fragment>
-      {appNotFound && <AppNotFound />}
-      {showSpinner && (
-        <div className="appContainer__loading">
-          <EuiLoadingSpinner aria-label="Loading application" size="xl" />
-        </div>
-      )}
-      <div key={appId} ref={elementRef} />
+      <div
+        style={{
+          backgroundColor: '#F9F9F9',
+          marginLeft: widthSidebar ? '0px' : '200px',
+          marginTop: '75px',
+          marginRight: widthSidebar ? '0px' : '20px',
+        }}
+      >
+        {appNotFound && <AppNotFound />}
+        {showSpinner && (
+          <div className="appContainer__loading">
+            <EuiLoadingSpinner aria-label="Loading application" size="xl" />
+          </div>
+        )}
+        <div key={appId} ref={elementRef} />
+      </div>
     </Fragment>
   );
 };

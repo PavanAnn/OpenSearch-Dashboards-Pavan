@@ -29,11 +29,11 @@
  */
 
 import React, { FunctionComponent, useMemo } from 'react';
-import { Route, RouteComponentProps, Router, Switch } from 'react-router-dom';
+import { Route, Router, Switch } from 'react-router-dom';
 import { History } from 'history';
 import { Observable } from 'rxjs';
 import useObservable from 'react-use/lib/useObservable';
-
+import { Navbar } from '../../chrome/ui/header/collapsible_nav';
 import type { MountPoint } from '../../types';
 import { AppLeaveHandler, AppStatus, Mounter } from '../types';
 import { AppContainer } from './app_container';
@@ -46,10 +46,6 @@ interface Props {
   setAppLeaveHandler: (appId: string, handler: AppLeaveHandler) => void;
   setAppActionMenu: (appId: string, mount: MountPoint | undefined) => void;
   setIsMounting: (isMounting: boolean) => void;
-}
-
-interface Params {
-  appId: string;
 }
 
 export const AppRouter: FunctionComponent<Props> = ({
@@ -66,26 +62,46 @@ export const AppRouter: FunctionComponent<Props> = ({
     [history]
   );
 
+  const policies = [
+    'login',
+    'home',
+    'management',
+    'visualize',
+    'dashboards',
+    'traces',
+    'discover',
+    'management',
+    'logSearching',
+    'data-streaming',
+    'management/opensearch-dashboards/objects',
+  ];
+
   return (
     <Router history={history}>
       <Switch>
-        {[...mounters].map(([appId, mounter]) => (
-          <Route
-            key={mounter.appRoute}
-            path={mounter.appRoute}
-            exact={mounter.exactRoute}
-            render={({ match: { path } }) => (
-              <AppContainer
-                appPath={path}
-                appStatus={appStatuses.get(appId) ?? AppStatus.inaccessible}
-                createScopedHistory={createScopedHistory}
-                {...{ appId, mounter, setAppLeaveHandler, setAppActionMenu, setIsMounting }}
+        {[...mounters].map(
+          ([appId, mounter]) =>
+            policies.includes(mounter.appRoute.replace('/app/', '')) && (
+              <Route
+                key={mounter.appRoute}
+                path={mounter.appRoute}
+                exact={mounter.exactRoute}
+                render={({ match: { path } }) => (
+                  <>
+                    <Navbar policies={policies} />
+                    <AppContainer
+                      appPath={path}
+                      appStatus={appStatuses.get(appId) ?? AppStatus.inaccessible}
+                      createScopedHistory={createScopedHistory}
+                      {...{ appId, mounter, setAppLeaveHandler, setAppActionMenu, setIsMounting }}
+                    />
+                  </>
+                )}
               />
-            )}
-          />
-        ))}
+            )
+        )}
         {/* handler for legacy apps and used as a catch-all to display 404 page on not existing /app/appId apps*/}
-        <Route
+        {/* <Route
           path="/app/:appId"
           render={({
             match: {
@@ -105,7 +121,7 @@ export const AppRouter: FunctionComponent<Props> = ({
               />
             );
           }}
-        />
+        /> */}
       </Switch>
     </Router>
   );

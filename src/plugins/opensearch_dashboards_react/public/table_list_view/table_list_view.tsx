@@ -553,7 +553,9 @@ class TableListView extends React.Component<TableListViewProps, TableListViewSta
   }
 
   render() {
-    return (
+    return !this.state.fetchError && this.hasNoItems() ? (
+      this.props.noItemsFragment
+    ) : (
       <EuiPage
         data-test-subj={this.props.entityName + 'LandingPage'}
         className="itemListing__page"

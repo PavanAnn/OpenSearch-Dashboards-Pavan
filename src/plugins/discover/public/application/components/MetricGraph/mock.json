@@ -1,0 +1,1133 @@
+{
+  "resource_spans": [
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  },
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724053697,
+                          "kind": 1,
+                          "name": "Choosing route between 179 possible alternatives",
+                          "parent_span_id": "u2nK58ATPbU=",
+                          "span_attributes": {
+                              "sensedia.trace_item.data": "null",
+                              "sensedia.trace_item.encrypt_content": "false",
+                              "sensedia.trace_item.message": "Choosing route between 179 possible alternatives",
+                              "sensedia.duration_millis": "33"
+                          },
+                          "span_id": "N6yEM/E2K2Q=",
+                          "start_time_unix_nano": 1683638285724048711,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  },
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724064237,
+                          "kind": 1,
+                          "name": "Destination to forward request: https://renatoym.free.beeceptor.com/ (header 'Host': renatoym.free.beeceptor.com)",
+                          "parent_span_id": "u2nK58ATPbU=",
+                          "span_attributes": {
+                              "sensedia.trace_item.data": "null",
+                              "sensedia.trace_item.encrypt_content": "false",
+                              "sensedia.trace_item.message": "Destination to forward request: https://renatoym.free.beeceptor.com/ (header 'Host': renatoym.free.beeceptor.com)",
+                              "sensedia.duration_millis": "43"
+                          },
+                          "span_id": "6V2iluP8z4c=",
+                          "start_time_unix_nano": 1683638285724062850,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  },
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724067221,
+                          "kind": 1,
+                          "name": "Executing API Interceptors",
+                          "parent_span_id": "u2nK58ATPbU=",
+                          "span_attributes": {
+                              "sensedia.trace_item.data": "null",
+                              "sensedia.trace_item.encrypt_content": "false",
+                              "sensedia.trace_item.message": "Executing API Interceptors",
+                              "sensedia.duration_millis": "44"
+                          },
+                          "span_id": "14vB6TRYEMI=",
+                          "start_time_unix_nano": 1683638285724065645,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  },
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724112634,
+                          "kind": 1,
+                          "name": "Executing API Interceptors",
+                          "parent_span_id": "u2nK58ATPbU=",
+                          "span_attributes": {
+                              "sensedia.trace_item.data": "null",
+                              "sensedia.trace_item.encrypt_content": "false",
+                              "sensedia.trace_item.message": "Executing API Interceptors",
+                              "sensedia.duration_millis": "1311"
+                          },
+                          "span_id": "Glgm9yg0WRY=",
+                          "start_time_unix_nano": 1683638285724111259,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  },
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724069829,
+                          "kind": 1,
+                          "name": "Executing Log Interceptor",
+                          "parent_span_id": "u2nK58ATPbU=",
+                          "span_attributes": {
+                              "sensedia.trace_item.data": "null",
+                              "sensedia.trace_item.encrypt_content": "false",
+                              "sensedia.trace_item.message": "Executing Log Interceptor",
+                              "sensedia.duration_millis": "44"
+                          },
+                          "span_id": "DO33ZHBzocQ=",
+                          "start_time_unix_nano": 1683638285724068604,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  },
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724115564,
+                          "kind": 1,
+                          "name": "Executing Log Interceptor",
+                          "parent_span_id": "u2nK58ATPbU=",
+                          "span_attributes": {
+                              "sensedia.trace_item.data": "null",
+                              "sensedia.trace_item.encrypt_content": "false",
+                              "sensedia.trace_item.message": "Executing Log Interceptor",
+                              "sensedia.duration_millis": "1312"
+                          },
+                          "span_id": "QGvJqGsi8jY=",
+                          "start_time_unix_nano": 1683638285724113941,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  },
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724105158,
+                          "kind": 1,
+                          "name": "Forwarding request to 'https://renatoym.free.beeceptor.com/' with HTTP Timeout: socket: 20000 - connection: 20000",
+                          "parent_span_id": "u2nK58ATPbU=",
+                          "span_attributes": {
+                              "sensedia.trace_item.data": "null",
+                              "sensedia.trace_item.encrypt_content": "false",
+                              "sensedia.trace_item.message": "Forwarding request to 'https://renatoym.free.beeceptor.com/' with HTTP Timeout: socket: 20000 - connection: 20000",
+                              "sensedia.duration_millis": "66"
+                          },
+                          "span_id": "qwEXEca6SVI=",
+                          "start_time_unix_nano": 1683638285724104050,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  },
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724061287,
+                          "kind": 1,
+                          "name": "Found matching route: api-tst1-testing.sensedia-eng.com/renato =\u003e https://renatoym.free.beeceptor.com/ (extraPath: )",
+                          "parent_span_id": "u2nK58ATPbU=",
+                          "span_attributes": {
+                              "sensedia.trace_item.data": "null",
+                              "sensedia.trace_item.encrypt_content": "false",
+                              "sensedia.trace_item.message": "Found matching route: api-tst1-testing.sensedia-eng.com/renato =\u003e https://renatoym.free.beeceptor.com/ (extraPath: )",
+                              "sensedia.duration_millis": "43"
+                          },
+                          "span_id": "G+OmaLI0ndE=",
+                          "start_time_unix_nano": 1683638285724059566,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  },
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724129052,
+                          "kind": 1,
+                          "name": "Renato-Teste00000000000",
+                          "parent_span_id": "",
+                          "span_attributes": {
+                              "http.method": "GET",
+                              "http.request.headers": "host: renatoym.free.beeceptor.com\ncontent-type: application/json\nuser-agent: PostmanRuntime/7.32.2\naccept: */*\npostman-token: b1eca0e1-0e0f-4643-a0b6-d762896bd202\naccept-encoding: gzip, deflate, br\nx-forwarded-for: 201.92.47.42\nx-forwarded-proto: https\nx-envoy-external-address: 201.92.47.42\nx-request-id: 6e3982ff-9d46-4104-ad27-90c9067c3524",
+                              "http.request_content_length": "13099",
+                              "http.response.headers": "access-control-allow-origin: *\nalt-svc: h3=\":443\"; ma=2592000\ncontent-type: text/plain\ndate: Tue, 09 May 2023 13:18:05 GMT\nvary: Accept-Encoding",
+                              "http.response_content_length": "18",
+                              "http.status_code": "200",
+                              "http.url": "https://api-tst1-testing.sensedia-eng.com/renato",
+                              "net.sock.host.addr": "201.92.47.42",
+                              "sensedia.api.component_type": "REVISION",
+                              "sensedia.api.id": "4766",
+                              "sensedia.api.name": "Renato-Teste00000000000",
+                              "sensedia.billing": "false",
+                              "sensedia.cached_response": "false",
+                              "sensedia.duration_millis": "1312",
+                              "sensedia.environment.id": "1",
+                              "sensedia.environment.name": "Production",
+                              "sensedia.gateway_duration_millis": "689",
+                              "sensedia.operation.id": "0",
+                              "sensedia.received_on": "1683638283763",
+                              "sensedia.received_on_date": "2023/05/09 13:18:03 +0000",
+                              "sensedia.request_id": "554a6220-25c4-46c2-a707-c51557ab3870",
+                              "sensedia.resource.id": "0",
+                              "sensedia.response.type_status": "success",
+                              "sensedia.revision.id": "31490",
+                              "sensedia.target_duration_millis": "623",
+                              "sensedia.target_result_status": "200",
+                              "service.name": "api-gateway"
+                          },
+                          "span_id": "u2nK58ATPbU=",
+                          "start_time_unix_nano": 1683638285724000000,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  },
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724108977,
+                          "kind": 1,
+                          "name": "Request forwarded successfully. Received http status: HTTP/1.1 200 OK , 18 bytes and 623 milliseconds.",
+                          "parent_span_id": "u2nK58ATPbU=",
+                          "span_attributes": {
+                              "sensedia.trace_item.data": "null",
+                              "sensedia.trace_item.encrypt_content": "false",
+                              "sensedia.trace_item.message": "Request forwarded successfully. Received http status: HTTP/1.1 200 OK , 18 bytes and 623 milliseconds.",
+                              "sensedia.duration_millis": "1310"
+                          },
+                          "span_id": "vcgVReNOUXk=",
+                          "start_time_unix_nano": 1683638285724107669,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  },
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724100582,
+                          "kind": 1,
+                          "name": "Request log",
+                          "parent_span_id": "u2nK58ATPbU=",
+                          "span_attributes": {
+                              "sensedia.trace_item.data": "{log={headers=host: renatoym.free.beeceptor.com\ncontent-type: application/json\nuser-agent: PostmanRuntime/7.32.2\naccept: */*\npostman-token: b1eca0e1-0e0f-4643-a0b6-d762896bd202\naccept-encoding: gzip, deflate, br\ncontent-length: 13100\nx-forwarded-for: 201.92.47.42\nx-forwarded-proto: https\nx-envoy-external-address: 201.92.47.42\nx-request-id: 6e3982ff-9d46-4104-ad27-90c9067c3524, method=GET, execution-point=FIRST, body={\r\n    \"resource_spans\": [\r\n        {\r\n            \"resource\": {\r\n                \"attributes\": [\r\n                    {\r\n                        \"key\": \"service.name\",\r\n                        \"value\": {\r\n                            \"value\": {\r\n                                \"string_value\": \"address\"\r\n                            }\r\n                        }\r\n                    },\r\n                    {\r\n                        \"key\": \"telemetry.sdk.language\",\r\n                        \"value\": {\r\n                            \"value\": {\r\n                                \"string_value\": \"java\"\r\n                            }\r\n                        }\r\n                    },\r\n                    {\r\n                        \"key\": \"telemetry.sdk.name\",\r\n                        \"value\": {\r\n                            \"value\": {\r\n                                \"string_value\": \"opentelemetry\"\r\n                            }\r\n                        }\r\n                    },\r\n                    {\r\n                        \"key\": \"telemetry.sdk.version\",\r\n                        \"value\": {\r\n                            \"value\": {\r\n                                \"string_value\": \"1.18.0\"\r\n                            }\r\n                        }\r\n                    }\r\n                ]\r\n            },\r\n            \"scope_spans\": [\r\n                {\r\n                    \"scope\": {\r\n                        \"name\": \"test\"\r\n                    },\r\n                    \"spans\": [\r\n                        {\r\n                            \"trace_id\": \"861wYBWhgYhXjP4mic+hsA==\",\r\n                            \"span_id\": \"1zZ5tIbvf2I=\",\r\n                            \"parent_span_id\": \"g3Krh1TOULg=\",\r\n                            \"name\": \"consultando o banco\",\r\n                            \"kind\": 2,\r\n                            \"start_time_unix_nano\": 1668451538753970000,\r\n                            \"end_time_unix_nano\": 1668451539000120000,\r\n                            \"attributes\": [\r\n                                {\r\n                                    \"key\": \"sensedia.product.name\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"api-platform\"\r\n                                        }\r\n                                    }\r\n                                },\r\n                                {\r\n                                    \"key\": \"sensedia.tenant.id\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"tst1\"\r\n                                        }\r\n                                    }\r\n                                }\r\n                            ],\r\n                            \"status\": {}\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"resource\": {\r\n                \"attributes\": [\r\n                    {\r\n                        \"key\": \"service.name\",\r\n                        \"value\": {\r\n                            \"value\": {\r\n                                \"string_value\": \"persons\"\r\n                            }\r\n                        }\r\n                    },\r\n                    {\r\n                        \"key\": \"telemetry.sdk.language\",\r\n                        \"value\": {\r\n                            \"value\": {\r\n                                \"string_value\": \"java\"\r\n                            }\r\n                        }\r\n                    },\r\n                    {\r\n                        \"key\": \"telemetry.sdk.name\",\r\n                        \"value\": {\r\n                            \"value\": {\r\n                                \"string_value\": \"opentelemetry\"\r\n                            }\r\n                        }\r\n                    },\r\n                    {\r\n                        \"key\": \"telemetry.sdk.version\",\r\n                        \"value\": {\r\n                            \"value\": {\r\n                                \"string_value\": \"1.18.0\"\r\n                            }\r\n                        }\r\n                    }\r\n                ]\r\n            },\r\n            \"scope_spans\": [\r\n                {\r\n                    \"scope\": {\r\n                        \"name\": \"test\"\r\n                    },\r\n                    \"spans\": [\r\n                        {\r\n                            \"trace_id\": \"861wYBWhgYhXjP4mic+hsA==\",\r\n                            \"span_id\": \"g3Krh1TOULg=\",\r\n                            \"parent_span_id\": \"/1XoJu9frcA=\",\r\n                            \"name\": \"chamando o address\",\r\n                            \"kind\": 1,\r\n                            \"start_time_unix_nano\": 1668451538552970000,\r\n                            \"end_time_unix_nano\": 1668451538753970000,\r\n                            \"attributes\": [\r\n                                {\r\n                                    \"key\": \"sensedia.product.name\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"api-platform\"\r\n                                        }\r\n                                    }\r\n                                },\r\n                                {\r\n                                    \"key\": \"sensedia.tenant.id\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"tst1\"\r\n                                        }\r\n                                    }\r\n                                }\r\n                            ],\r\n                            \"status\": {}\r\n                        },\r\n                        {\r\n                            \"trace_id\": \"861wYBWhgYhXjP4mic+hsA==\",\r\n                            \"span_id\": \"/1XoJu9frcA=\",\r\n                            \"parent_span_id\": \"VlUFNdsEiO4=\",\r\n                            \"name\": \"buscando no banco\",\r\n                            \"kind\": 1,\r\n                            \"start_time_unix_nano\": 1668451538552970000,\r\n                            \"end_time_unix_nano\": 1668451539000120000,\r\n                            \"attributes\": [\r\n                                {\r\n                                    \"key\": \"sensedia.product.name\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"api-platform\"\r\n                                        }\r\n                                    }\r\n                                },\r\n                                {\r\n                                    \"key\": \"sensedia.tenant.id\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"tst1\"\r\n                                        }\r\n                                    }\r\n                                }\r\n                            ],\r\n                            \"status\": {}\r\n                        },\r\n                        {\r\n                            \"trace_id\": \"861wYBWhgYhXjP4mic+hsA==\",\r\n                            \"span_id\": \"VlUFNdsEiO4=\",\r\n                            \"name\": \"busca pessoas\",\r\n                            \"kind\": 1,\r\n                            \"start_time_unix_nano\": 1668451538552970000,\r\n                            \"end_time_unix_nano\": 1668451539200182973,\r\n                            \"attributes\": [\r\n                                {\r\n                                    \"key\": \"http.url\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"https://staging.sensedia.com/persons\"\r\n                                        }\r\n                                    }\r\n                                },\r\n                                {\r\n                                    \"key\": \"http.method\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"GET\"\r\n                                        }\r\n                                    }\r\n                                },\r\n                                {\r\n                                    \"key\": \"status\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"true\"\r\n                                        }\r\n                                    }\r\n                                },\r\n                                {\r\n                                    \"key\": \"sensedia.product.name\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"api-platform\"\r\n                                        }\r\n                                    }\r\n                                },\r\n                                {\r\n                                    \"key\": \"sensedia.tenant.id\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"tst1\"\r\n                                        }\r\n                                    }\r\n                                },\r\n                                {\r\n                                    \"key\": \"http.status_code\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"400\"\r\n                                        }\r\n                                    }\r\n                                },\r\n                                {\r\n                                    \"key\": \"http.request.header.access_token\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"cd996d39-0e63-4b75-af0b-eab95778c8e9\"\r\n                                        }\r\n                                    }\r\n                                },\r\n                                {\r\n                                    \"key\": \"component\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"API\"\r\n                                        }\r\n                                    }\r\n                                },\r\n                                {\r\n                                    \"key\": \"service.name\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"persons\"\r\n                                        }\r\n                                    }\r\n                                },\r\n                                {\r\n                                    \"key\": \"http.route\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"persons\"\r\n                                        }\r\n                                    }\r\n                                }\r\n                            ],\r\n                            \"status\": {}\r\n                        },\r\n                        {\r\n                            \"trace_id\": \"861wYBWhgYhXjP4mic+hsA==\",\r\n                            \"span_id\": \"lfR0q+1N1ZU=\",\r\n                            \"parent_span_id\": \"VlUFNdsEiO4=\",\r\n                            \"name\": \"método async\",\r\n                            \"kind\": 1,\r\n                            \"start_time_unix_nano\": 1668451539000120000,\r\n                            \"end_time_unix_nano\": 1668451539200182973,\r\n                            \"attributes\": [\r\n                                {\r\n                                    \"key\": \"sensedia.product.name\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"api-platform\"\r\n                                        }\r\n                                    }\r\n                                },\r\n                                {\r\n                                    \"key\": \"sensedia.tenant.id\",\r\n                                    \"value\": {\r\n                                        \"value\": {\r\n                                            \"string_value\": \"tst1\"\r\n                                        }\r\n                                    }\r\n                                }\r\n                            ],\r\n                            \"status\": {}\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}\r\n, url=http://api-tst1-testing.sensedia-eng.com/renato}, type=LOG}",
+                              "sensedia.trace_item.encrypt_content": "false",
+                              "sensedia.trace_item.message": "Request log",
+                              "sensedia.duration_millis": "50"
+                          },
+                          "span_id": "5DCCzhu32d8=",
+                          "start_time_unix_nano": 1683638285724071140,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  },
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724123238,
+                          "kind": 1,
+                          "name": "Response log",
+                          "parent_span_id": "u2nK58ATPbU=",
+                          "span_attributes": {
+                              "sensedia.trace_item.data": "{log={headers=access-control-allow-origin: *\nalt-svc: h3=\":443\"; ma=2592000\ncontent-type: text/plain\ndate: Tue, 09 May 2023 13:18:05 GMT\nvary: Accept-Encoding, execution-point=SECOND, body={\n\"body\": \"body\"\n}, status=200}, type=LOG}",
+                              "sensedia.trace_item.encrypt_content": "false",
+                              "sensedia.trace_item.message": "Response log",
+                              "sensedia.duration_millis": "1312"
+                          },
+                          "span_id": "0PVxDSwikxs=",
+                          "start_time_unix_nano": 1683638285724116786,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  },
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724125870,
+                          "kind": 1,
+                          "name": "Returning response to client",
+                          "parent_span_id": "u2nK58ATPbU=",
+                          "span_attributes": {
+                              "sensedia.trace_item.data": "null",
+                              "sensedia.trace_item.encrypt_content": "false",
+                              "sensedia.trace_item.message": "Returning response to client",
+                              "sensedia.duration_millis": "1314"
+                          },
+                          "span_id": "nIhL/c22/vc=",
+                          "start_time_unix_nano": 1683638285724124586,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "resource": {
+              "attributes": [
+                  {
+                      "key": "service.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.language",
+                      "value": {
+                          "value": {
+                              "string_value": "java"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.name",
+                      "value": {
+                          "value": {
+                              "string_value": "opentelemetry"
+                          }
+                      }
+                  },
+                  {
+                      "key": "telemetry.sdk.version",
+                      "value": {
+                          "value": {
+                              "string_value": "1.24.0"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.product.name",
+                      "value": {
+                          "value": {
+                              "string_value": "api-gateway"
+                          }
+                      }
+                  },
+                  {
+                      "key": "sensedia.tenant.id",
+                      "value": {
+                          "value": {
+                              "string_value": "tst1"
+                          }
+                      }
+                  }
+              ]
+          },
+          "scope_spans": [
+              {
+                  "scope": {
+                      "name": null
+                  },
+                  "spans": [
+                      {
+                          "end_time_unix_nano": 1683638285724128553,
+                          "kind": 1,
+                          "name": "Saving trace",
+                          "parent_span_id": "u2nK58ATPbU=",
+                          "span_attributes": {
+                              "sensedia.trace_item.data": "null",
+                              "sensedia.trace_item.encrypt_content": "false",
+                              "sensedia.trace_item.message": "Saving trace",
+                              "sensedia.duration_millis": "1323"
+                          },
+                          "span_id": "Y21Q45CSVGM=",
+                          "start_time_unix_nano": 1683638285724127224,
+                          "status": {},
+                          "trace_id": "IdO/f9WbgPhR06ZkOCViwA=="
+                      }
+                  ]
+              }
+          ]
+      }
+  ]
+}

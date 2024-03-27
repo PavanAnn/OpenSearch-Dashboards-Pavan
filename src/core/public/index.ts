@@ -340,5 +340,5 @@ export {
   NavType,
   Branding,
 };
-
+export * from './consts/consts';
 export { __osdBootstrap__ } from './osd_bootstrap';

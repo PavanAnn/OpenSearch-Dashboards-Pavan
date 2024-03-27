@@ -1,0 +1,5 @@
+export declare function getUrl(): "https://internal-apis.platform-sbox-staging.sensedia-eng.com/" | "https://sbox-internal-services-analytics.sensedia-eng.com/" | "https://internal-apis.platform-production.sensedia.com/" | "https://internal-apis.platform-sbox-testing.sensedia-eng.com/";
+export declare const getUrlPolicies: () => "https://internal-apis.platform-sbox-staging.sensedia-eng.com/user-management/v1/account-settings/permissions?productName=Analytics" | "https://sbox-internal-services-analytics.sensedia-eng.com/user-management/v1/account-settings/permissions?productName=Analytics" | "https://platform-production.sensedia.com/user-management/v1/account-settings/permissions?productName=Analytics" | "https://internal-apis.platform-sbox-testing.sensedia-eng.com/user-management/v1/account-settings/permissions?productName=Analytics";
+export declare const checkPolicies: (key: string) => Promise<"" | "discover" | "data-streaming" | "logSearching">;
+export declare const loadPermission: () => Promise<string[]>;
+//# sourceMappingURL=index.d.ts.map

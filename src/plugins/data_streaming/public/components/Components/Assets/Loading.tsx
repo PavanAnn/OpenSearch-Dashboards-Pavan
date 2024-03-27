@@ -1,0 +1,65 @@
+import React from 'react';
+
+export const IconSVG = () => (
+
+  <>
+    <svg
+      version="1.1"
+      id="L3"
+      x="0px"
+      y="0px"
+      viewBox="0 0 100 100"
+      className="loadingBar"
+      style={{ width: '150px', height: '150px', margin: '20px', display: 'inline-block' }}
+    >
+      <path
+        fill="#6D63DB"
+        d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+        L82,35.7z"
+      >
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          dur="2s"
+          from="0 50 50"
+          to="360 50 50"
+          repeatCount="indefinite"
+        />
+      </path>
+
+      <path
+        fill="#413F7B"
+        d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+        L82,35.7z"
+      >
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          dur="2s"
+          from="360 50 50"
+          to="0 50 50"
+          repeatCount="indefinite"
+        />
+      </path>
+
+      <path
+        fill="#6D63DB"
+        d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+        L82,35.7z"
+        style={{ opacity: '0.5' }}
+      >
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          dur="1s"
+          from="360 50 50"
+          to="0 50 50"
+          repeatCount="indefinite"
+        />
+      </path>
+    </svg>
+  </>
+);

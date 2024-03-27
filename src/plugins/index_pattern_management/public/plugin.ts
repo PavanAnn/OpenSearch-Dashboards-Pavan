@@ -96,18 +96,18 @@ export class IndexPatternManagementPlugin
       return pathInApp && `/patterns${pathInApp}`;
     });
 
-    opensearchDashboardsSection.registerApp({
-      id: IPM_APP_ID,
-      title: sectionsHeader,
-      order: 0,
-      mount: async (params) => {
-        const { mountManagementSection } = await import('./management_app');
+    // opensearchDashboardsSection.registerApp({
+    //   id: IPM_APP_ID,
+    //   title: sectionsHeader,
+    //   order: 0,
+    //   mount: async (params) => {
+    //     const { mountManagementSection } = await import('./management_app');
 
-        return mountManagementSection(core.getStartServices, params, () =>
-          this.indexPatternManagementService.environmentService.getEnvironment().ml()
-        );
-      },
-    });
+    //     return mountManagementSection(core.getStartServices, params, () =>
+    //       this.indexPatternManagementService.environmentService.getEnvironment().ml()
+    //     );
+    //   },
+    // });
 
     return this.indexPatternManagementService.setup({ httpClient: core.http });
   }

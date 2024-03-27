@@ -67,21 +67,10 @@ export class SampleDataSetCards extends React.Component {
     this.loadSampleDataSets();
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.isDataSourceEnabled) {
-      this._isMounted = true;
-      if (prevProps && prevProps.dataSourceId !== this.props.dataSourceId) {
-        this.setState({ dataSourceId: this.props.dataSourceId }, () =>
-          this.loadSampleDataSets(this.state.dataSourceId)
-        );
-      }
-    }
-  }
-
-  loadSampleDataSets = async (dataSourceId) => {
+  loadSampleDataSets = async () => {
     let sampleDataSets;
     try {
-      sampleDataSets = await listSampleDataSets(dataSourceId);
+      sampleDataSets = await listSampleDataSets();
     } catch (fetchError) {
       this.toastNotifications.addDanger({
         title: i18n.translate('home.sampleDataSet.unableToLoadListErrorMessage', {
@@ -104,7 +93,7 @@ export class SampleDataSetCards extends React.Component {
     });
   };
 
-  install = async (id, dataSourceId) => {
+  install = async (id) => {
     const targetSampleDataSet = this.state.sampleDataSets.find((sampleDataSet) => {
       return sampleDataSet.id === id;
     });
@@ -114,7 +103,7 @@ export class SampleDataSetCards extends React.Component {
     }));
 
     try {
-      await installSampleDataSet(id, targetSampleDataSet.defaultIndex, dataSourceId);
+      await installSampleDataSet(id, targetSampleDataSet.defaultIndex);
     } catch (fetchError) {
       if (this._isMounted) {
         this.setState((prevState) => ({
@@ -152,7 +141,7 @@ export class SampleDataSetCards extends React.Component {
     });
   };
 
-  uninstall = async (id, dataSourceId) => {
+  uninstall = async (id) => {
     const targetSampleDataSet = this.state.sampleDataSets.find((sampleDataSet) => {
       return sampleDataSet.id === id;
     });
@@ -162,7 +151,7 @@ export class SampleDataSetCards extends React.Component {
     }));
 
     try {
-      await uninstallSampleDataSet(id, targetSampleDataSet.defaultIndex, dataSourceId);
+      await uninstallSampleDataSet(id, targetSampleDataSet.defaultIndex);
     } catch (fetchError) {
       if (this._isMounted) {
         this.setState((prevState) => ({
@@ -224,7 +213,6 @@ export class SampleDataSetCards extends React.Component {
                 previewUrl={this.props.addBasePath(this.lightOrDarkImage(sampleDataSet))}
                 onInstall={this.install}
                 onUninstall={this.uninstall}
-                dataSourceId={this.state.dataSourceId}
               />
             </EuiFlexItem>
           );

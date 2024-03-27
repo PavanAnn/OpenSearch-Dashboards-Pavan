@@ -1,0 +1,7 @@
+{
+  "prefix": "dataStreaming",
+  "paths": {
+    "dataStreaming": "."
+  },
+  "translations": ["translations/ja-JP.json"]
+}

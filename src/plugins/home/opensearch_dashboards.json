@@ -4,8 +4,8 @@
   "server": true,
   "ui": true,
   "requiredPlugins": ["data", "urlForwarding"],
-  "optionalPlugins": ["usageCollection", "telemetry", "dataSource"],
+  "optionalPlugins": ["usageCollection", "telemetry"],
   "requiredBundles": [
-    "opensearchDashboardsReact", "dataSourceManagement"
+    "opensearchDashboardsReact"
   ]
 }

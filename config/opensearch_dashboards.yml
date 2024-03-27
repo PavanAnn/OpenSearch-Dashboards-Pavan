@@ -23,7 +23,9 @@
 #server.name: "your-hostname"
 
 # The URLs of the OpenSearch instances to use for all your queries.
-#opensearch.hosts: ["http://localhost:9200"]
+# opensearch.hosts: ["http:localhost:8081"]
+# opensearch.username: 'master'
+# opensearch.password: 'zOT5Ob#8'
 
 # OpenSearch Dashboards uses an index in OpenSearch to store saved searches, visualizations and
 # dashboards. OpenSearch Dashboards creates a new index if the index doesn't already exist.
@@ -202,19 +204,18 @@
 #  'ff00::/8',
 # ]
 
-# opensearchDashboards.branding:
-#   logo:
-#     defaultUrl: ""
-#     darkModeUrl: ""
-#   mark:
-#     defaultUrl: ""
-#     darkModeUrl: ""
-#   loadingLogo:
-#     defaultUrl: ""
-#     darkModeUrl: ""
-#   faviconUrl: ""
-#   applicationTitle: ""
-#   useExpandedHeader: false
+opensearchDashboards.branding:
+  logo:
+    defaultUrl: "https://dev-service-imagens-opensearch-dashboards.s3.amazonaws.com/colored-logo.svg"
+    darkModeUrl: "https://dev-service-imagens-opensearch-dashboards.s3.amazonaws.com/white-logo.svg"
+  mark:
+    defaultUrl: "https://dev-service-imagens-opensearch-dashboards.s3.amazonaws.com/colored-logo.svg"
+    darkModeUrl: "https://dev-service-imagens-opensearch-dashboards.s3.amazonaws.com/white-logo.svg"
+  loadingLogo:
+    defaultUrl: "https://dev-service-imagens-opensearch-dashboards.s3.amazonaws.com/colored-logo.svg"
+    darkModeUrl: "https://dev-service-imagens-opensearch-dashboards.s3.amazonaws.com/white-logo.svg"
+  faviconUrl: "https://dev-service-imagens-opensearch-dashboards.s3.amazonaws.com/logo_%2B.svg"
+  applicationTitle: " "
 
 # Set the value of this setting to true to capture region denied warnings and errors
 # for your map rendering services.

@@ -33,6 +33,7 @@ import React, { FunctionComponent, createElement } from 'react';
 import { RenderingMetadata } from '../types';
 import { Fonts } from './fonts';
 import { Styles } from './styles';
+import Loading from './loading';
 
 interface Props {
   metadata: RenderingMetadata;
@@ -43,7 +44,6 @@ export const Template: FunctionComponent<Props> = ({
     uiPublicUrl,
     locale,
     darkMode,
-    themeVersion,
     injectedMetadata,
     i18n,
     bootstrapScriptUrl,
@@ -66,107 +66,9 @@ export const Template: FunctionComponent<Props> = ({
       />
     </svg>
   );
-  const openSearchLogoSpinner = (
-    <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g>
-        <path
-          d="M75.7374 37.5C74.4878 37.5 73.4748 38.513 73.4748 39.7626C73.4748 58.3813 58.3813 73.4748 39.7626 73.4748C38.513 73.4748 37.5 74.4878 37.5 75.7374C37.5 76.987 38.513 78 39.7626 78C60.8805 78 78 60.8805 78 39.7626C78 38.513 76.987 37.5 75.7374 37.5Z"
-          fill="#005EB8"
-        />
-        <animateTransform
-          attributeName="transform"
-          type="rotate"
-          from="0 40 40"
-          to="359.9 40 40"
-          dur="1.5s"
-          repeatCount="indefinite"
-          values="0 40 40; 15 40 40; 340 40 40; 359.9 40 40"
-          keyTimes="0; .3; .7; 1"
-        />
-      </g>
-      <path
-        d="M62.0814 52C64.2572 48.4505 66.3615 43.7178 65.9475 37.0921C65.0899 23.3673 52.6589 12.9554 40.9206 14.0837C36.3253 14.5255 31.6068 18.2712 32.026 24.9805C32.2082 27.8961 33.6352 29.6169 35.9544 30.9399C38.1618 32.1992 40.9978 32.9969 44.2128 33.9011C48.0962 34.9934 52.6009 36.2203 56.0631 38.7717C60.2125 41.8296 63.0491 45.3743 62.0814 52Z"
-        fill="#003B5C"
-      />
-      <path
-        d="M17.9186 28C15.7428 31.5495 13.6385 36.2822 14.0525 42.9079C14.9101 56.6327 27.3411 67.0446 39.0794 65.9163C43.6747 65.4745 48.3932 61.7288 47.974 55.0195C47.7918 52.1039 46.3647 50.3831 44.0456 49.0601C41.8382 47.8008 39.0022 47.0031 35.7872 46.0989C31.9038 45.0066 27.3991 43.7797 23.9369 41.2283C19.7875 38.1704 16.9509 34.6257 17.9186 28Z"
-        fill="#005EB8"
-      />
-    </svg>
-  );
 
-  const loadingLogoDefault = injectedMetadata.branding.loadingLogo?.defaultUrl;
-  const loadingLogoDarkMode = injectedMetadata.branding.loadingLogo?.darkModeUrl;
-  const markDefault = injectedMetadata.branding.mark?.defaultUrl;
-  const markDarkMode = injectedMetadata.branding.mark?.darkModeUrl;
   const favicon = injectedMetadata.branding.faviconUrl;
   const applicationTitle = injectedMetadata.branding.applicationTitle;
-
-  /**
-   * Use branding configurations to check which URL to use for rendering
-   * loading logo in default mode. In default mode, loading logo will
-   * proritize default loading logo URL, and then default mark URL.
-   * If both are invalid, default opensearch logo and spinner will be rendered.
-   *
-   * @returns a valid custom URL or undefined if no valid URL is provided
-   */
-  const customLoadingLogoDefaultMode = () => {
-    return loadingLogoDefault ?? markDefault ?? undefined;
-  };
-
-  /**
-   * Use branding configurations to check which URL to use for rendering
-   * loading logo in default mode. In dark mode, loading logo will proritize
-   * loading logo URLs, then mark logo URLs.
-   * Within each type, the dark mode URL will be proritized if provided.
-   *
-   * @returns a valid custom URL or undefined if no valid URL is provided
-   */
-  const customLoadingLogoDarkMode = () => {
-    return loadingLogoDarkMode ?? loadingLogoDefault ?? markDarkMode ?? markDefault ?? undefined;
-  };
-
-  /**
-   * Render custom loading logo for both default mode and dark mode
-   *
-   * @returns a valid custom loading logo URL, or undefined
-   */
-  const customLoadingLogo = () => {
-    return darkMode ? customLoadingLogoDarkMode() : customLoadingLogoDefaultMode();
-  };
-
-  /**
-   * Check if a horizontal loading is needed to be rendered.
-   * Loading bar will be rendered only when a default mode mark URL or
-   * dark mode mark URL is rendered as the loading logo. We add the
-   * horizontal loading bar on the bottom of the static mark logo to have
-   * some loading effect for the loading page.
-   *
-   * @returns a loading bar component or no loading bar component
-   */
-  const renderBrandingEnabledOrDisabledLoadingBar = () => {
-    if (customLoadingLogo() && !loadingLogoDefault) {
-      return <div className="osdProgress" />;
-    }
-  };
-
-  /**
-   * Check if we render a custom loading logo or the default opensearch spinner.
-   * If customLoadingLogo() returns undefined(no valid custom URL is found), we
-   * render the default opensearch logo spinenr
-   *
-   * @returns a image component with custom logo URL, or the default opensearch logo spinner
-   */
-  const renderBrandingEnabledOrDisabledLoadingLogo = () => {
-    if (customLoadingLogo()) {
-      return (
-        <div className="loadingLogoContainer">
-          <img className="loadingLogo" src={customLoadingLogo()} alt={applicationTitle + ' logo'} />
-        </div>
-      );
-    }
-    return openSearchLogoSpinner;
-  };
 
   return (
     <html lang={locale}>
@@ -175,6 +77,7 @@ export const Template: FunctionComponent<Props> = ({
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width" />
         <title>{applicationTitle}</title>
+        <Fonts url={uiPublicUrl} />
         {/**
          * Favicons (generated from https://realfavicongenerator.net/)
          *
@@ -229,9 +132,6 @@ export const Template: FunctionComponent<Props> = ({
         {/* Inject stylesheets into the <head> before scripts so that KP plugins with bundled styles will override them */}
         <meta name="add-styles-here" />
         <meta name="add-scripts-here" />
-
-        {/* Place fonts after styles that would be injected later to make sure nothing overrides them */}
-        <Fonts url={uiPublicUrl} theme={themeVersion} />
       </head>
       <body>
         {createElement('osd-csp', {
@@ -241,22 +141,20 @@ export const Template: FunctionComponent<Props> = ({
         <div
           className="osdWelcomeView"
           id="osd_loading_message"
-          style={{ display: 'none' }}
+          style={{ display: 'none', minHeight: '100vh !important', backgroundColor: '#303030' }}
           data-test-subj="osdLoadingMessage"
         >
-          <div className="osdLoaderWrap" data-test-subj="loadingLogo">
-            {renderBrandingEnabledOrDisabledLoadingLogo()}
-            <div
-              className="osdWelcomeText"
-              data-error-message={i18n('core.ui.welcomeErrorMessage', {
-                defaultMessage: `${injectedMetadata.branding.applicationTitle} did not load properly. Check the server output for more information.`,
-              })}
-            >
-              {i18n('core.ui.welcomeMessage', {
-                defaultMessage: `Loading ${injectedMetadata.branding.applicationTitle}`,
-              })}
-            </div>
-            {renderBrandingEnabledOrDisabledLoadingBar()}
+          <div
+            className="osdLoaderWrap"
+            data-test-subj="loadingLogo"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              minHeight: '100vh',
+            }}
+          >
+            <Loading />
           </div>
         </div>
 
